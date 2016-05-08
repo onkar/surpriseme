@@ -5,7 +5,7 @@ VIRTUALENV_NAME=SuMeMainEnv
 
 echo "Install basic initial packages required............."
 sudo apt-get update
-sudo apt-get install vim python3 python3-dev nginx postgresql postgresql-contrib
+sudo apt-get install vim python3 python3-dev nginx postgresql postgresql-contrib libpq-dev
 
 echo "Setup Flask in a virtual env....................."
 mkdir $PROJECT_DIR
@@ -13,7 +13,7 @@ cd $PROJECT_DIR
 mkdir app
 virtualenv $VIRTUALENV_NAME
 source $VIRTUALENV_NAME/bin/activate
-pip install uwsgi flask
+pip install uwsgi flask psycopg2
 deactivate
 
 echo "Configure uwsgi...................."
